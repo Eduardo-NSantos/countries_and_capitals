@@ -148,5 +148,7 @@ class MainController extends Controller
             'current_question' => $current_question,
             'total_questions' => session('total_questions')
         ];
+
+        return view('answer_result', $data);
     }
 }
