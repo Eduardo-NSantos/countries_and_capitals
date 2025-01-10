@@ -169,7 +169,11 @@ class MainController extends Controller
     }
 
     public function showResults(){
-        echo 'final results';
-        dd(session()->all());
+        return view('final_results', [
+            'total_questions' => session('total_questions'),
+            'correct_answers' => session('correct_answers'),
+            'wrong_answers' => session('wrong_answers'),
+            'percentage' => round( session('correct_answers') / session('total_questions') * 100, 2)
+        ]);
     }
 }
